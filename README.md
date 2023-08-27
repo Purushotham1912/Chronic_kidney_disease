@@ -4,7 +4,10 @@ In this project, the chronic kidney disease dataset is subjected to preprocessin
 
 ## files :
 
-**file1 -> Data_preprocessing**:
+**file1-> Chronic kidney disease dataset** :
+   This file contains the required dataset.
+
+**file2 -> Data_preprocessing**:
 
 ## Preprocessing Steps
 
@@ -26,10 +29,13 @@ In this project, the chronic kidney disease dataset is subjected to preprocessin
 6. **Data Exploration**:
    Perform exploratory data analysis to understand data distributions, relationships, and anomalies.
 
-**file2-> Chronic kidney disease dataset** :
-   This file contains the required dataset.
+**file3-> Exploratory Data Analysis[EDA]** :
+   In the realm of exploratory data analysis, the chronic kidney disease dataset pulsates with latent insights. Through rigorous analysis and dynamic visualization, we unravel hidden patterns, correlations, and 
+   potential disease connections, ultimately shaping predictive models that distill its essence.
 
-**file3-> dataset** :
+**file4-> README.md**
+
+**file5-> dataset** :
   The resultant dataset after performing preprocessing techniques. This is the final dataset used for analysis.
 
 ## Machine Learning Extension
