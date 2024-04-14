@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kidney Disease Predictor</title>
+  <style>
+    .kidney-disease-predictor {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .submit-button {
+  border: 1px solid #87ceeb;
+}
+
+    .input-field {
+      flex: 1;
+      padding: 10px;
+      margin: 5px; /* Add margin to create space between input fields */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .submit-button {
+      background-color: #000;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .input-row {
+      display: flex;
+      flex-wrap: wrap; /* Allow input fields to wrap to the next row */
+    }
+
+    .input-grid {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <div class="kidney-disease-predictor">
+    <h1>KIDNEY DISEASE PREDICTION</h1>
+
+    <form action="/predict" method="post">
+      <div class="input-grid">
+        <div class="input-row">
+          <input type="number" name="age" class="input-field" placeholder="age">
+          <input type="number" name="bp" class="input-field" placeholder="blood_pressure">
+          <input type="number" name="sg" class="input-field" placeholder="specific_gravity">
+          <input type="number" name="al" class="input-field" placeholder="albumin">
+          <input type="number" name="su" class="input-field" placeholder="sugar">
+          <input type="text" name="rbc" class="input-field" placeholder="red blood cells">
+        </div>
+        <div class="input-row">
+          <input type="text" name="pc" class="input-field" placeholder="pus cell">
+          <input type="text" name="pcc" class="input-field" placeholder="pus cell clumps">
+          <input type="text" name="ba" class="input-field" placeholder="bacteria">
+          <input type="number" name="bgr" class="input-field" placeholder="blood glucose random">
+          <!-- Add 8 more input fields here -->
+          <input type="number" name="bu" class="input-field" placeholder="blood urea">
+          <input type="number" name="sc" class="input-field" placeholder="serum creatinine">
+          <input type="number" name="sod" class="input-field" placeholder="sodium">
+          <input type="number" name="pot" class="input-field" placeholder="potassium">
+          <input type="number" name="hemo" class="input-field" placeholder="hemoglobin">
+          <input type="number" name="pcv" class="input-field" placeholder="packed cell volume">
+          <input type="number" name="wc" class="input-field" placeholder="white blood cell count">
+          <input type="number" name="rc" class="input-field" placeholder="red blood cell count">
+          <input type="number" name="htn" class="input-field" placeholder="hypertension">
+          <input type="number" name="dm" class="input-field" placeholder="diabetes mellitus">
+          <input type="number" name="cad" class="input-field" placeholder="coronory artery disease">
+          <input type="number" name="appet" class="input-field" placeholder="appetite">
+          <input type="number" name="pe" class="input-field" placeholder="pedal edema">
+          <input type="number" name="ane" class="input-field" placeholder="anemia">
+          
+        </div>
+      </div>
+      <center><input type="submit" value="Predict" class="submit-button" style="background-color: #87ceeb;"></center>
+    </form>
+  </div>
+</body>
+</html>

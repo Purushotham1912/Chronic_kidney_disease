@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidney Disease Prediction</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+.container {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 1000px;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+label {
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container d-flex flex-row justify-content-center text-center ">
+        <h1>Kidney Disease Prediction</h1>
+        <div>
+            <form id="predictionForm">
+
+
+                <div class="input-group">
+                    <label for="age">Age:</label>
+                    <input type="text" id="age" name="age" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="bloodPressure">Blood Pressure (e.g., 120/80):</label>
+                    <input type="text" id="bloodPressure" name="bloodPressure" placeholder="e.g., 120/80" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="specificGravity">Specific Gravity:</label>
+                    <input type="text" id="specificGravity" name="specificGravity" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="albumin">Albumin:</label>
+                    <input type="text" id="albumin" name="albumin" placeholder="Enter albumin" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="sugar">Sugar:</label>
+                    <input type="text" id="sugar" name="sugar" placeholder="Enter sugar" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="redBloodCells">Red Blood Cells:</label>
+                    <select id="redBloodCells" name="redBloodCells" required>
+                        <option value="normal">Normal</option>
+                        <option value="abnormal">Abnormal</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="pusCell">Pus Cell:</label>
+                    <select id="pusCell" name="pusCell" required>
+                        <option value="normal">Normal</option>
+                        <option value="abnormal">Abnormal</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="pusCellClumps">Pus Cell Clumps:</label>
+                    <select id="pusCellClumps" name="pusCellClumps" required>
+                        <option value="present">present</option>
+                        <option value="not present">not present</option>
+                    </select>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="bacteria">Bacteria:</label>
+                    <select id="bacteria" name="bacteria" required>
+                        <option value="present">Present</option>
+                        <option value="not present">Not present</option>
+                    </select>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="bloodGlucose">Blood Glucose (Random):</label>
+                    <input type="text" id="bloodGlucose" name="bloodGlucose" placeholder="Enter blood glucose" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="bloodUrea">Blood Urea:</label>
+                    <input type="text" id="bloodUrea" name="bloodUrea" placeholder="Enter blood urea" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="serumCreatinine">Serum Creatinine:</label>
+                    <input type="text" id="serumCreatinine" name="serumCreatinine" placeholder="Enter serum creatinine" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="sodium">Sodium:</label>
+                    <input type="text" id="sodium" name="sodium" placeholder="Enter sodium" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="potassium">Potassium:</label>
+                    <input type="text" id="potassium" name="potassium" placeholder="Enter potassium" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="hemoglobin">Hemoglobin:</label>
+                    <input type="text" id="hemoglobin" name="hemoglobin" placeholder="Enter hemoglobin" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="packedCellVolume">Packed Cell Volume:</label>
+                    <input type="text" id="packedCellVolume" name="packedCellVolume" placeholder="Enter packed cell volume" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="whiteBloodCellCount">White Blood Cell Count:</label>
+                    <input type="text" id="whiteBloodCellCount" name="whiteBloodCellCount" placeholder="Enter white blood cell count" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="redBloodCellCount">Red Blood Cell Count:</label>
+                    <input type="text" id="redBloodCellCount" name="redBloodCellCount" placeholder="Enter red blood cell count" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="hypertension">Hypertension:</label>
+                    <select id="hypertension" name="hypertension" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="diabetesMellitus">Diabetes Mellitus:</label>
+                    <input type="text" id="diabetesMellitus" name="diabetesMellitus" placeholder="Enter diabetes mellitus" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="coronaryArteryDisease">Coronary Artery Disease:</label>
+                    <select id="coronaryArteryDisease" name="coronaryArteryDisease" required>
+                        <option value="yes">yes</option>
+                        <option value="no present">No</option>
+                    </select>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="appetite">Appetite:</label>
+                    <select id="appetite" name="appetite" required>
+                        <option value="good">Good</option>
+                        <option value="poor">Poor</option>
+                    </select>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="pedalEdema">Pedal Edema:</label>
+                    <select id="pedalEdema" name="pedalEdema" required>
+                        <option value="yes">yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="anemia">Anemia:</label>
+                    <select id="anemia" name="anemia" required>
+                        <option value="present">Present</option>
+                        <option value="not present">Not present</option>
+                    </select>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="classification">Classification:</label>
+                    <input type="text" id="classification" name="classification" placeholder="Enter classification" required>
+                </div>
+
+                <button type="button" onclick="predictKidneyDisease()">Predict</button>
+
+            </form>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js">
+        // Function to dynamically update input field styles while entering values
+function updateFieldStyle(inputField, color) {
+    inputField.style.borderColor = color;
+}
+
+// Function to handle the "input" event for each input field
+function handleInputEvent(inputField) {
+    inputField.addEventListener('input', function() {
+        // Check the entered value and update the style dynamically for each input field
+        switch (inputField.id) {
+            case "bloodPressure":
+            case "sugar":
+                if (parseFloat(inputField.value) <= 120) {
+                    updateFieldStyle(inputField, 'green');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+            case "serumCreatinine":
+                if (parseFloat(inputField.value) <= 1.2) {
+                    updateFieldStyle(inputField, 'green');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+            case "bloodUrea":
+                if (parseInt(inputField.value) <= 20) {
+                    updateFieldStyle(inputField, 'green');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+            case "specificGravity":
+                if (parseFloat(inputField.value) < 1.030) {
+                    updateFieldStyle(inputField, 'green');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+            case "albumin":
+                if (parseFloat(inputField.value) < 5.0) {
+                    updateFieldStyle(inputField, 'green');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+            case "redBloodCells":
+            case "pusCell":
+                if (inputField.value === "normal") {
+                    updateFieldStyle(inputField, 'green');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+            case "pusCellClumps":
+            case "bacteria":
+                if (inputField.value === "not present") {
+                    updateFieldStyle(inputField, 'green');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+            case "bloodGlucose":
+                if (parseFloat(inputField.value) <= 140) {
+                    updateFieldStyle(inputField, 'green');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+            case "sodium":
+                if (parseFloat(inputField.value) <= 145) {
+                    updateFieldStyle(inputField, 'green');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+            case "potassium":
+                if (parseFloat(inputField.value) < 5.0) {
+                    updateFieldStyle(inputField, 'green');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+            case "hemoglobin":
+                if (parseFloat(inputField.value) <= 12.0) {
+                    updateFieldStyle(inputField, 'green');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+            case "whiteBloodCellCount":
+                if (parseFloat(inputField.value) <= 11001) {
+                    updateFieldStyle(inputField, 'green');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+            case "packedCellVolume":
+                if (parseFloat(inputField.value) < 36) {
+                    updateFieldStyle(inputField, 'green');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+            case "redBloodCellCount":
+                if (parseFloat(inputField.value) <= 5.73) {
+                    updateFieldStyle(inputField, 'green');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+            case "hypertension":
+            case "coronaryArteryDisease":
+            case "appetite":
+            case "pedalEdema":
+            case "anemia":
+                if (inputField.value === "no" || inputField.value === "no present" || inputField.value === "good") {
+                    updateFieldStyle(inputField, 'yellow');
+                } else {
+                    updateFieldStyle(inputField, 'red');
+                }
+                break;
+
+                // Add more cases for other input fields as needed
+
+            default:
+                // Default styling or additional conditions for other fields
+                break;
+        }
+    });
+}
+
+// Add event listeners for "input" event to each input field
+document.addEventListener('DOMContentLoaded', function() {
+    let inputFields = document.querySelectorAll('input[type="text"]');
+    inputFields.forEach(function(inputField) {
+        handleInputEvent(inputField);
+    });
+});
+
+// Function to predict kidney disease
+function predictKidneyDisease() {
+    // Get values from the form
+    let bloodPressureInput = document.getElementById("bloodPressure");
+    let sugarInput = document.getElementById("sugar");
+    let diabetesMInput = document.getElementById("diabetesMellitus");
+    let serumCreatinineInput = document.getElementById("serumCreatinine");
+    let bloodUInput = document.getElementById("bloodUrea");
+    let specificInput = document.getElementById("specificGravity");
+    let albuminInput = document.getElementById("albumin");
+    let redInput = document.getElementById("redBloodCells");
+    let pusInput = document.getElementById("pusCell");
+    let pusclInput = document.getElementById("pusCellClumps");
+    let bacteriaInput = document.getElementById("bacteria");
+    let bloodGInput = document.getElementById("bloodGlucose");
+    let sodiumvInput = document.getElementById("sodium");
+    let potassiumvInput = document.getElementById("potassium");
+    let heamoInput = document.getElementById("hemoglobin");
+    let wbcInput = document.getElementById("whiteBloodCellCount");
+    let pcvInput = document.getElementById("packedCellVolume");
+    let redcInput = document.getElementById("redBloodCellCount");
+    let hyperInput = document.getElementById("hypertension");
+    let coronInput = document.getElementById("coronaryArteryDisease");
+    let apeInput = document.getElementById("appetite");
+    let pedalInput = document.getElementById("pedalEdema");
+    let animeInput = document.getElementById("anemia");
+    let classificationInput = document.getElementById("classification");
+
+    // Check if any of the values are not entered
+    if (!bloodPressureInput.value || !sugarInput.value || !diabetesMInput.value || !serumCreatinineInput.value || !bloodUInput.value || !specificInput.value || !albuminInput.value || !redInput.value || !pusInput.value || !pusclInput.value || !bacteriaInput.value || !bloodGInput.value || !sodiumvInput.value || !potassiumvInput.value || !heamoInput.value || !wbcInput.value || !pcvInput.value || !redcInput.value || !hyperInput.value || !coronInput.value || !apeInput.value || !pedalInput.value || !animeInput.value) {
+        alert("Please enter all values before predicting.");
+        return; // Exit the function if values are not entered
+    }
+
+    // Convert values to numeric types
+    let bloodPressureValue = parseInt(bloodPressureInput.value);
+    let sugarValue = parseFloat(sugarInput.value);
+    let diabetesMValue = parseFloat(diabetesMInput.value);
+    let serumCreatinineValue = parseFloat(serumCreatinineInput.value);
+    let bloodUValue = parseInt(bloodUInput.value);
+    let specificValue = parseFloat(specificInput.value);
+    let albuminValue = parseFloat(albuminInput.value);
+    let redValue = redInput.value;
+    let pusValue = pusInput.value;
+    let pusclValue = pusclInput.value;
+    let bacteriaValue = bacteriaInput.value;
+    let bloodGValue = parseFloat(bloodGInput.value);
+    let sodiumvValue = parseFloat(sodiumvInput.value);
+    let potassiumvValue = parseFloat(potassiumvInput.value);
+    let heamoValue = parseFloat(heamoInput.value);
+    let wbcValue = parseFloat(wbcInput.value);
+    let pcvValue = parseFloat(pcvInput.value);
+    let redcValue = parseFloat(redcInput.value);
+    let hyperValue = hyperInput.value;
+    let coronValue = coronInput.value;
+    let apeValue = apeInput.value;
+    let pedalValue = pedalInput.value;
+    let animeValue = animeInput.value;
+    let classificationValue = classificationInput.value;
+
+    // Perform prediction based on entered values
+    if (bloodPressureValue <= 120 && sugarValue <= 140 && redcValue <= 5.73 && pcvValue < 36 && wbcValue <= 11001 && serumCreatinineValue <= 1.2 && diabetesMValue >= 15 && bloodUValue <= 20 && specificValue < 1.030 && albuminValue < 5.0 && redValue === "normal" && pusValue === "normal" && pusclValue === "not present" && bacteriaValue === "not present" && bloodGValue <= 140 && sodiumvValue <= 145 && potassiumvValue < 5.0 && heamoValue <= 12.0) {
+        document.getElementById("result").innerHTML = "The person is fine; no immediate medical attention is necessary. <a href='https://www.callondoc.com/en/consultation'>Consult a doctor for more precautions.</a>";
+
+        // Set input field styles to red
+        updateFieldStyle(classificationInput, 'red');
+    } else {
+        document.getElementById("result").innerHTML = "big danger";
+
+        // Set input field styles to green
+        updateFieldStyle(classificationInput, 'green');
+    }
+}
+    </script>
+</body>
+
+</html>
